@@ -58,7 +58,7 @@ public class SecurityConfig{
         // We don't need CSRF for this example
         httpSecurity.csrf().disable()
                 // dont authenticate this particular request
-                .authorizeHttpRequests().requestMatchers("/authenticate", "/register").permitAll().
+                .authorizeHttpRequests().requestMatchers("/authenticate", "/addCustomer").permitAll().
                 // all other requests need to be authenticated
                         anyRequest().authenticated().and().
                 // make sure we use stateless session; session won't be used to
@@ -70,4 +70,9 @@ public class SecurityConfig{
         httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
         return httpSecurity.build();
     }
+
+//    @Bean
+//    public HttpHeaders headers(){
+//        return new HttpHeaders();
+//    }
 }

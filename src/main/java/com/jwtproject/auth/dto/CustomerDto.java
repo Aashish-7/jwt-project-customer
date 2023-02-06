@@ -1,5 +1,15 @@
 package com.jwtproject.auth.dto;
 
+import com.jwtproject.auth.role.Role;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class CustomerDto {
 
     private String customerName;
@@ -11,6 +21,8 @@ public class CustomerDto {
     private String currentPassword;
 
     private String confirmPassword;
+
+    private Role role;
 
     public String getCurrentPassword() {
         return currentPassword;
